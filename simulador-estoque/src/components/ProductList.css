@@ -33,6 +33,11 @@
   border-radius: 4px;
 }
 
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
 .product-list button {
   padding: 5px 10px;
   background-color: #ff4d4d;

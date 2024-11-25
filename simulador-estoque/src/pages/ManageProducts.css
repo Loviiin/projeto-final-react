@@ -3,7 +3,7 @@
 }
 
 .manage-products-content {
-  margin-left: 200px; /* Espaço para o menu */
+  margin-left: 200px;
   padding: 2rem;
   width: calc(100% - 200px);
 }

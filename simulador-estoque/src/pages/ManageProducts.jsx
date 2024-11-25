@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
 import Sidebar from '../components/Sidebar';
 import './ManageProducts.css';
 
+// Página de gerenciamento de produtos
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortCriteria, setSortCriteria] = useState('name');
 
+  // Carregar produtos do localStorage ao montar o componente
+  useEffect(() => {
+    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    setProducts(storedProducts);
+  }, []);
+
+  // Salvar produtos no localStorage sempre que a lista de produtos mudar
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
+  // Função para adicionar ou editar um produto
   const handleAddProduct = (product) => {
     if (editingProduct !== null) {
       const updatedProducts = products.map((p, index) =>
@@ -22,19 +35,23 @@ const ManageProducts = () => {
     }
   };
 
+  // Função para remover um produto
   const handleRemoveProduct = (index) => {
     const newProducts = products.filter((_, i) => i !== index);
     setProducts(newProducts);
   };
 
+  // Função para editar um produto
   const handleEditProduct = (index) => {
     setEditingProduct(index);
   };
 
+  // Função para alterar o critério de ordenação
   const handleSortChange = (e) => {
     setSortCriteria(e.target.value);
   };
 
+  // Ordenar e filtrar produtos com base no termo de pesquisa e critério de ordenação
   const sortedProducts = [...products].sort((a, b) => {
     if (sortCriteria === 'name') {
       return a.name.localeCompare(b.name);

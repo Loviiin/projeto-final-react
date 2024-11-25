@@ -15,7 +15,8 @@
   color: #333;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -43,3 +44,8 @@
   background-color: #0056b3;
 }
 
+@media (max-width: 768px) {
+  .product-form {
+    padding: 0;
+  }
+}

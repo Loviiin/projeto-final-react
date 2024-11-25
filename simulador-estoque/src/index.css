@@ -1,13 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f9f9f9;
   color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-weight: 500;
 }
 
 a {
@@ -25,4 +26,10 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
