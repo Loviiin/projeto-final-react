@@ -10,7 +10,7 @@ const ProductForm = ({ onSubmit, initialData }) => {
   const [, setImage] = useState('');
 
   // Categorias predefinidas
-  const predefinedCategories = ['Categoria A', 'Categoria B', 'Categoria C'];
+  const predefinedCategories = ['Categoria exemplo 1', 'Categoria exemplo 2', 'Categoria exemplo 3'];
 
   // Efeito para preencher o formulário com dados iniciais ao editar um produto
   useEffect(() => {
